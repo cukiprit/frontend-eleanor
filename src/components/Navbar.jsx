@@ -12,16 +12,32 @@ import LoginModal from "./LoginModal";
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
+  const nav = [
+    {
+      name: "Home",
+      path: "/",
+    },
+    {
+      name: "Products",
+      path: "/products",
+    },
+  ];
+
   return (
     <Flex bg="#153448" w="100%" p={4} color="white" align="center">
       <Heading size="lg">Eleanor</Heading>
       <Spacer />
-      <Link as={ReactRouterLink} px={2} mr={2} to="/">
-        Home
-      </Link>
-      <Link as={ReactRouterLink} px={2} mr={2} to="/products">
-        Products
-      </Link>
+      {nav.map((navigation) => (
+        <Link
+          as={ReactRouterLink}
+          key={navigation.name}
+          px={2}
+          mr={2}
+          to={navigation.path}
+        >
+          {navigation.name}
+        </Link>
+      ))}
       <Button bgColor="white" variant="outline" onClick={onOpen}>
         Login
       </Button>
