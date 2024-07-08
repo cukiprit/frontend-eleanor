@@ -57,6 +57,10 @@ const AdminNavbar = () => {
       >
         <Heading fontSize="xx-large">Admin Pages</Heading>
 
+        <Link as={ReactRouterLink} px={2} mr={2} to="/products">
+          Product
+        </Link>
+
         <IconButton
           ref={btnRef}
           icon={isOpen ? <LuX size={24} /> : <LuAlignJustify size={24} />}

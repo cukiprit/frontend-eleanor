@@ -8,9 +8,11 @@ import {
 } from "@chakra-ui/react";
 import { Link as ReactRouterLink } from "react-router-dom";
 import LoginModal from "./LoginModal";
+import { useState } from "react";
 
 const Navbar = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const [isLoggedIn, setIsLoggedIn] = useState(!!localStorage.getItem("token"));
 
   const nav = [
     {
@@ -22,6 +24,11 @@ const Navbar = () => {
       path: "/products",
     },
   ];
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+  };
 
   return (
     <Flex bg="#153448" w="100%" p={4} color="white" align="center">
@@ -38,9 +45,20 @@ const Navbar = () => {
           {navigation.name}
         </Link>
       ))}
-      <Button bgColor="white" variant="outline" onClick={onOpen}>
-        Login
-      </Button>
+      {isLoggedIn ? (
+        <>
+          <Link as={ReactRouterLink} px={2} mr={2} to="/admin">
+            Admin
+          </Link>
+          <Button bgColor="white" variant="outline" onClick={logout}>
+            Logout
+          </Button>
+        </>
+      ) : (
+        <Button bgColor="white" variant="outline" onClick={onOpen}>
+          Login
+        </Button>
+      )}
 
       <LoginModal isOpen={isOpen} onClose={onClose} />
     </Flex>
