@@ -7,7 +7,9 @@ const Details = () => {
   const [product, setProduct] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/products/${id}`)
+    fetch(
+      `https://backend-eleanor-lnnsui6v9-karminemcukipritgmailcoms-projects.vercel.app/api/products/${id}`
+    )
       .then((res) => res.json())
       .then((data) => setProduct(data.product[0]))
       .catch((err) => console.error(err.message));

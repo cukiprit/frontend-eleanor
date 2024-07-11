@@ -36,7 +36,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:3000/api/products?page=${page}&pageSize=${pageSize}`
+      `https://backend-eleanor-lnnsui6v9-karminemcukipritgmailcoms-projects.vercel.app/api/products?page=${page}&pageSize=${pageSize}`
     )
       .then((res) => res.json())
       .then((data) => {
@@ -54,12 +54,15 @@ const Dashboard = () => {
   const handleDeleteConfirm = () => {
     const token = localStorage.getItem("token");
 
-    fetch(`http://localhost:3000/api/products/${productIdToDelete}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    })
+    fetch(
+      `https://backend-eleanor-lnnsui6v9-karminemcukipritgmailcoms-projects.vercel.app/api/products/${productIdToDelete}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
       .then((res) => {
         if (!res.ok) {
           throw new Error(res.statusText);
