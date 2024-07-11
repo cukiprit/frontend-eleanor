@@ -26,11 +26,14 @@ const LoginModal = ({ isOpen, onClose }) => {
     const username = formRef.current.elements.username.value;
     const password = formRef.current.elements.password.value;
 
-    fetch("http://localhost:3000/api/login", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ username, password }),
-    })
+    fetch(
+      "https://backend-eleanor-lnnsui6v9-karminemcukipritgmailcoms-projects.vercel.app/api/login",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password }),
+      }
+    )
       .then((res) => {
         if (!res.ok) {
           throw new Error(res.statusText);
