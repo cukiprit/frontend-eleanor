@@ -36,7 +36,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     fetch(
-      `https://backend-eleanor-lnnsui6v9-karminemcukipritgmailcoms-projects.vercel.app/api/products?page=${page}&pageSize=${pageSize}`
+      `https://backend-eleanor.vercel.app/api/products?page=${page}&pageSize=${pageSize}`
     )
       .then((res) => res.json())
       .then((data) => {
