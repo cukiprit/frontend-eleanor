@@ -20,7 +20,10 @@ const Details = () => {
       </Button>
 
       <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={5}>
-        <Image src={product.product_image} alt={product.product_name} />
+        <Image
+          src={JSON.parse(product.product_image).url}
+          alt={product.product_name}
+        />
 
         <Box mt={5}>
           <Heading>{product.product_name}</Heading>

@@ -8,7 +8,9 @@ const Products = () => {
   useEffect(() => {
     fetch("https://backend-eleanor.vercel.app/api/products")
       .then((res) => res.json())
-      .then((data) => setProducts(data.products))
+      .then((data) => {
+        setProducts(data.products);
+      })
       .catch((err) => console.error(err.message));
   }, []);
 
@@ -20,7 +22,13 @@ const Products = () => {
 
       <SimpleGrid columns={{ base: 1, md: 3 }} spacing={10} px={10}>
         {products.map((product) => (
-          <ProductCard key={product.id_product} product={product} />
+          <ProductCard
+            key={product.id_product}
+            product={{
+              ...product,
+              product_image: JSON.parse(product.product_image),
+            }}
+          />
         ))}
       </SimpleGrid>
     </Container>
