@@ -4,7 +4,10 @@ import { Link as ReactRouterLink } from "react-router-dom";
 const ProductCard = ({ product }) => {
   return (
     <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
-      <Image src={product.product_image} alt={product.product_name} />
+      <Image
+        src={product.product_image.url}
+        alt={product.product_name.filename}
+      />
 
       <Box p={6}>
         <Box display="flex" alignItems="baseline">
