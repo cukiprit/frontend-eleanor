@@ -26,7 +26,7 @@ const LoginModal = ({ isOpen, onClose }) => {
     const username = formRef.current.elements.username.value;
     const password = formRef.current.elements.password.value;
 
-    fetch("https://backend-eleanor.vercel.app/api/login", {
+    fetch("https://backend-eleanor.vercel.app/login", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ username, password }),
