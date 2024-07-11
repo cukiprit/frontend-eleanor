@@ -28,16 +28,13 @@ const AddProducts = () => {
 
     const token = localStorage.getItem("token");
 
-    fetch(
-      "https://backend-eleanor-lnnsui6v9-karminemcukipritgmailcoms-projects.vercel.app/api/products",
-      {
-        method: "POST",
-        body: formData,
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
+    fetch("https://backend-eleanor.vercel.app/api/products", {
+      method: "POST",
+      body: formData,
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
       .then((res) => {
         if (!res.ok) {
           throw new Error(res.statusText);

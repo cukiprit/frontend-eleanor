@@ -55,7 +55,7 @@ const Dashboard = () => {
     const token = localStorage.getItem("token");
 
     fetch(
-      `https://backend-eleanor-lnnsui6v9-karminemcukipritgmailcoms-projects.vercel.app/api/products/${productIdToDelete}`,
+      `https://backend-eleanor.vercel.app/api/products/${productIdToDelete}`,
       {
         method: "DELETE",
         headers: {

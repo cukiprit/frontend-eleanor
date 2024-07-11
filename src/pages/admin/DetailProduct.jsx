@@ -114,7 +114,7 @@ const DetailProduct = () => {
   };
 
   useEffect(() => {
-    fetch(`http://localhost:3000/api/products/${id}`)
+    fetch(`https://backend-eleanor.vercel.app/api/products/${id}`)
       .then((res) => res.json())
       .then((data) => {
         const productData = data.product[0];

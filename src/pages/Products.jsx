@@ -6,9 +6,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch(
-      "https://backend-eleanor-lnnsui6v9-karminemcukipritgmailcoms-projects.vercel.app/api/products"
-    )
+    fetch("https://backend-eleanor.vercel.app/api/products")
       .then((res) => res.json())
       .then((data) => setProducts(data.products))
       .catch((err) => console.error(err.message));
