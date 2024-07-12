@@ -5,11 +5,15 @@ import { useParams, Link as ReactRouterLink } from "react-router-dom";
 const Details = () => {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
+  const [productImage, setProductImage] = useState("");
 
   useEffect(() => {
     fetch(`https://backend-eleanor.vercel.app/api/products/${id}`)
       .then((res) => res.json())
-      .then((data) => setProduct(data.product[0]))
+      .then((data) => {
+        setProduct(data.product[0]);
+        setProductImage(JSON.parse(product.product_image).url);
+      })
       .catch((err) => console.error(err.message));
   }, []);
 
@@ -20,10 +24,7 @@ const Details = () => {
       </Button>
 
       <Box borderWidth="1px" borderRadius="lg" overflow="hidden" p={5}>
-        <Image
-          src={JSON.parse(product.product_image).url}
-          alt={product.product_name}
-        />
+        <Image src={productImage} alt={product.product_name} />
 
         <Box mt={5}>
           <Heading>{product.product_name}</Heading>
